@@ -1,5 +1,5 @@
 {
-  "name": "@pruvonet/facebook-nodejs-business-sdk",
+  "name": "proof-facebook-nodejs-business-sdk",
   "version": "8.0.1",
   "description": "PruvoNet fork of SDK for the Facebook Ads API in Javascript and Node.js",
   "author": "Facebook",
