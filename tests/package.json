@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Adding tests for Facebook NodeJs Business SDK",
   "scripts": {
-    "test": "mocha test",
+    "test": "mocha .",
     "test_change": "./node_modules/.bin/mocha *_tests.js",
     "src_change": "pushd ..; npm i; popd; ./node_modules/.bin/mocha *_tests.js",
     "watch": "npm-watch"
@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "chai": "~3.5.0",
-    "mocha": "^8.0.1",
+    "mocha": "^6.0.1",
     "npm-watch": "^0.7.0"
   },
   "watch": {
