@@ -16,7 +16,7 @@ import Cursor from './../cursor';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class CommerceOrder extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       buyer_details: 'buyer_details',
       channel: 'channel',
@@ -112,6 +112,16 @@ export default class CommerceOrder extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/payments'
+    );
+  }
+
+  getPromotionDetails (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/promotion_details'
     );
   }
 

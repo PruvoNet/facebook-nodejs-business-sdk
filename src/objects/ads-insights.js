@@ -14,7 +14,7 @@ import {AbstractCrudObject} from './../abstract-crud-object';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class AdsInsights extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       account_currency: 'account_currency',
       account_id: 'account_id',
@@ -38,6 +38,7 @@ export default class AdsInsights extends AbstractCrudObject {
       adset_name: 'adset_name',
       adset_start: 'adset_start',
       age_targeting: 'age_targeting',
+      attribution_setting: 'attribution_setting',
       auction_bid: 'auction_bid',
       auction_competitiveness: 'auction_competitiveness',
       auction_max_competitor_bid: 'auction_max_competitor_bid',
@@ -214,6 +215,7 @@ export default class AdsInsights extends AbstractCrudObject {
     return Object.freeze({
       conversion: 'conversion',
       impression: 'impression',
+      mixed: 'mixed',
     });
   }
   static get Breakdowns (): Object {
@@ -255,7 +257,6 @@ export default class AdsInsights extends AbstractCrudObject {
       last_week_mon_sun: 'last_week_mon_sun',
       last_week_sun_sat: 'last_week_sun_sat',
       last_year: 'last_year',
-      lifetime: 'lifetime',
       maximum: 'maximum',
       this_month: 'this_month',
       this_quarter: 'this_quarter',

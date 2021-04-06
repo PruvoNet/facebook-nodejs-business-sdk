@@ -23,6 +23,7 @@ import CustomConversion from './custom-conversion';
 import Application from './application';
 import Page from './page';
 import ProductCatalog from './product-catalog';
+import WhatsAppBusinessAccount from './whats-app-business-account';
 import CPASCollaborationRequest from './cpas-collaboration-request';
 import CPASAdvertiserPartnershipRecommendation from './cpas-advertiser-partnership-recommendation';
 import CommerceMerchantSettings from './commerce-merchant-settings';
@@ -32,6 +33,7 @@ import ExtendedCredit from './extended-credit';
 import BusinessAssetSharingAgreement from './business-asset-sharing-agreement';
 import BusinessAgreement from './business-agreement';
 import InstagramUser from './instagram-user';
+import IGUser from './ig-user';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import BusinessAdAccountRequest from './business-ad-account-request';
 import BusinessApplicationRequest from './business-application-request';
@@ -48,7 +50,7 @@ import MeasurementUploadEvent from './measurement-upload-event';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class Business extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       block_offline_analytics: 'block_offline_analytics',
       created_by: 'created_by',
@@ -109,6 +111,7 @@ export default class Business extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      draft: 'DRAFT',
       manage: 'MANAGE',
     });
   }
@@ -129,6 +132,7 @@ export default class Business extends AbstractCrudObject {
       manage: 'MANAGE',
       manage_jobs: 'MANAGE_JOBS',
       manage_leads: 'MANAGE_LEADS',
+      messaging: 'MESSAGING',
       moderate: 'MODERATE',
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
@@ -150,6 +154,13 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
+    );
+  }
+
+  deleteAdAccounts (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/ad_accounts',
+      params
     );
   }
 
@@ -243,6 +254,15 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/agencies'
+    );
+  }
+
+  createAggregateRevenue (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/aggregate_revenue',
+      fields,
+      params,
+      
     );
   }
 
@@ -409,6 +429,16 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getClientWhatsAppBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/client_whatsapp_business_accounts'
+    );
+  }
+
   deleteClients (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/clients',
@@ -522,6 +552,15 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  createFranchiseProgram (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/franchise_programs',
+      fields,
+      params,
+      
+    );
+  }
+
   getInitiatedAudienceSharingRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessAssetSharingAgreement,
@@ -556,6 +595,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/instagram_accounts'
+    );
+  }
+
+  getInstagramBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      IGUser,
+      fields,
+      params,
+      fetchFirstPage,
+      '/instagram_business_accounts'
     );
   }
 
@@ -722,6 +771,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       ProductCatalog
+    );
+  }
+
+  getOwnedWhatsAppBusinessAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      WhatsAppBusinessAccount,
+      fields,
+      params,
+      fetchFirstPage,
+      '/owned_whatsapp_business_accounts'
     );
   }
 

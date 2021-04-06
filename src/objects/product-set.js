@@ -24,7 +24,7 @@ import Vehicle from './vehicle';
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
 export default class ProductSet extends AbstractCrudObject {
-  static get Fields () {
+  static get Fields (): Object {
     return Object.freeze({
       auto_creation_url: 'auto_creation_url',
       filter: 'filter',
@@ -34,6 +34,7 @@ export default class ProductSet extends AbstractCrudObject {
       name: 'name',
       product_catalog: 'product_catalog',
       product_count: 'product_count',
+      retailer_id: 'retailer_id',
     });
   }
 
